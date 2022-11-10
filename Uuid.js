@@ -5,7 +5,7 @@
 async function getQuizUUID() {
     var name = prompt("enter name")
     function sendEvent(uuid) {
-       quiz(uuid);
+       quiz("https://kahoot.it/rest/kahoots/" + uuid);
     }
     await fetch("https://kahoot.it/rest/kahoots/?query=" + name + "&limit=1").then((promise) => promise.json()).then((josn) => josn.entities[0].card.uuid).then((uuid) => sendEvent(uuid));
 }
